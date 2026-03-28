@@ -148,6 +148,21 @@
     }
     .thumb:hover .caption { opacity: 1; }
 
+    /* always-visible "View all photos" label on the hero tile */
+    .gallery-cta {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.65));
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      padding: 1.5rem 1rem 0.9rem;
+      text-align: center;
+      pointer-events: none;
+    }
+
     /* placeholder tile when no image loaded */
     .thumb.placeholder {
       background: #d8d3cc;
@@ -558,9 +573,7 @@ if (PHOTOS.length === 0) {
   div.setAttribute("role", "button");
   div.setAttribute("aria-label", "View all " + PHOTOS.length + " photos");
   div.innerHTML = `<img src="${photo.src}" alt="${photo.caption || "Photo 1"}" />`
-                + `<div class="caption" style="opacity:1;font-size:0.9rem;padding:0.8rem 1rem;">
-                     📷 Click to view all ${PHOTOS.length} photos
-                   </div>`;
+                + `<div class="gallery-cta">View all ${PHOTOS.length} photos &rsaquo;</div>`;
   div.addEventListener("click",   () => openLightbox(0));
   div.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openLightbox(0); });
   gallery.appendChild(div);
