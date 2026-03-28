@@ -545,24 +545,25 @@ allDetails.forEach(d => {
   detailsGrid.appendChild(card);
 });
 
-// Gallery
+// Gallery — show only the first photo; clicking opens the full lightbox
 const gallery = document.getElementById("gallery");
 if (PHOTOS.length === 0) {
   gallery.innerHTML = `<p style="font-family:Arial,sans-serif;color:#888;grid-column:1/-1">
     Photos coming soon — add images to the <code>/images/</code> folder and update the PHOTOS array.</p>`;
 } else {
-  PHOTOS.forEach((photo, i) => {
-    const div = document.createElement("div");
-    div.className = "thumb" + (photo.featured ? " featured" : "");
-    div.setAttribute("tabindex", "0");
-    div.setAttribute("role", "button");
-    div.setAttribute("aria-label", "View photo: " + (photo.caption || i + 1));
-    div.innerHTML = `<img src="${photo.src}" alt="${photo.caption || "Photo " + (i+1)}" loading="lazy" />`
-                  + (photo.caption ? `<div class="caption">${photo.caption}</div>` : "");
-    div.addEventListener("click",    () => openLightbox(i));
-    div.addEventListener("keydown",  e => { if (e.key === "Enter" || e.key === " ") openLightbox(i); });
-    gallery.appendChild(div);
-  });
+  const photo = PHOTOS[0];
+  const div = document.createElement("div");
+  div.className = "thumb featured";
+  div.setAttribute("tabindex", "0");
+  div.setAttribute("role", "button");
+  div.setAttribute("aria-label", "View all " + PHOTOS.length + " photos");
+  div.innerHTML = `<img src="${photo.src}" alt="${photo.caption || "Photo 1"}" />`
+                + `<div class="caption" style="opacity:1;font-size:0.9rem;padding:0.8rem 1rem;">
+                     📷 Click to view all ${PHOTOS.length} photos
+                   </div>`;
+  div.addEventListener("click",   () => openLightbox(0));
+  div.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openLightbox(0); });
+  gallery.appendChild(div);
 }
 
 // Map
