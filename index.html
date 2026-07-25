@@ -1,673 +1,1002 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="1041 Short Leaf Circle — Beautiful home for sale. Tour the photos and get in touch." />
-  <title>1041 Short Leaf Circle — For Sale</title>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>1041 Short Leaf Circle — Gardendale, AL</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1a2942;
+    --navy-deep: #131f33;
+    --gold: #c9a35c;
+    --gold-soft: #d4b478;
+    --ivory: #f5f1ea;
+    --paper: #faf7f1;
+    --ink: #2b2f36;
+    --ink-soft: #5b6068;
+    --line: #e6dfd2;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.42 0 0 0 0 0.36 0 0 0 0 0.27 0 0 0 0.18 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  .topbar, .hero, main, footer, .price-bar, .modal { position: relative; z-index: 2; }
 
-    :root {
-      --navy:   #1a2b3c;
-      --gold:   #c8a04a;
-      --light:  #f5f2ed;
-      --white:  #ffffff;
-      --gray:   #6b7280;
-      --radius: 8px;
-    }
+  /* ---------- Top bar ---------- */
+  .topbar {
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.65);
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar .domain { color: rgba(255,255,255,0.85); font-weight: 500; }
+  .topbar .status { color: var(--gold-soft); display: inline-flex; gap: 8px; align-items: center; }
+  .topbar .status::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold-soft);
+  }
 
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--light);
-      color: var(--navy);
-    }
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--navy);
+    color: #fff;
+    text-align: center;
+    padding: 124px 24px 112px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at top, rgba(201,163,92,0.10), transparent 65%);
+    pointer-events: none;
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .monogram {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.42em;
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .monogram::before, .monogram::after {
+    content: "";
+    display: block;
+    width: 36px;
+    height: 1px;
+    background: rgba(201,163,92,0.55);
+  }
+  .badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy-deep);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.24em;
+    padding: 7px 16px;
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(54px, 8.5vw, 104px);
+    margin: 0 0 14px;
+    letter-spacing: -0.015em;
+    line-height: 1.0;
+  }
+  .hero .addr {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    margin-bottom: 52px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(28px, 5vw, 56px);
+    flex-wrap: wrap;
+  }
+  .stat { position: relative; padding: 0 clamp(10px, 2vw, 18px); }
+  .stat + .stat::before {
+    content: "";
+    position: absolute;
+    left: calc(-1 * clamp(14px, 2.5vw, 28px));
+    top: 50%; transform: translateY(-50%);
+    height: 36px;
+    width: 1px;
+    background: rgba(201,163,92,0.35);
+  }
+  .stat .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--gold);
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 1;
+  }
+  .stat .lbl {
+    color: rgba(255,255,255,0.55);
+    font-size: 10.5px;
+    letter-spacing: 0.22em;
+    margin-top: 8px;
+    font-weight: 500;
+  }
 
-    /* ── HEADER ───────────────────────────────────── */
-    header {
-      background: var(--navy);
-      color: var(--white);
-      text-align: center;
-      padding: 3rem 1.5rem 2rem;
-    }
-    header .tag {
-      display: inline-block;
-      background: var(--gold);
-      color: var(--navy);
-      font-family: Arial, sans-serif;
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3rem 0.9rem;
-      border-radius: 2px;
-      margin-bottom: 1rem;
-    }
-    header h1 {
-      font-size: clamp(1.8rem, 5vw, 3rem);
-      font-weight: normal;
-      letter-spacing: 0.02em;
-      margin-bottom: 0.4rem;
-    }
-    header .subtitle {
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
-      color: #a8b8c8;
-      margin-bottom: 1.8rem;
-    }
+  /* ---------- Price bar ---------- */
+  .price-bar {
+    background: var(--gold);
+    color: var(--navy-deep);
+    text-align: center;
+    padding: 20px 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .price-bar .pre {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-right: 14px;
+    opacity: 0.7;
+    vertical-align: middle;
+  }
 
-    /* ── STATS BAR ────────────────────────────────── */
-    .stats {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.5rem 2.5rem;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      padding-top: 1.5rem;
-    }
-    .stat {
-      text-align: center;
-    }
-    .stat .value {
-      display: block;
-      font-size: 1.4rem;
-      color: var(--gold);
-    }
-    .stat .label {
-      font-family: Arial, sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #a8b8c8;
-    }
+  /* ---------- Layout ---------- */
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  section { padding: 132px 0 8px; position: relative; }
+  section + section::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(880px, calc(100% - 48px));
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(201,163,92,0.0) 4%,
+      rgba(201,163,92,0.55) 22%,
+      rgba(201,163,92,0.7) 50%,
+      rgba(201,163,92,0.55) 78%,
+      rgba(201,163,92,0.0) 96%,
+      transparent 100%
+    );
+  }
+  section + section::after {
+    content: "❖";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--paper);
+    padding: 0 14px;
+    color: var(--gold);
+    font-size: 12px;
+    line-height: 1;
+  }
 
-    /* ── PRICE BANNER ─────────────────────────────── */
-    .price-banner {
-      background: var(--gold);
-      color: var(--navy);
-      text-align: center;
-      padding: 0.85rem 1rem;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 1.8rem;
-      font-weight: normal;
-      letter-spacing: 0.02em;
-    }
+  /* Editorial section header: eyebrow + large serif title side-by-side */
+  .section-head {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 32px;
+    align-items: baseline;
+    margin-bottom: 64px;
+  }
+  .section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.34em;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    padding-top: 14px;
+    border-top: 1px solid var(--gold);
+  }
+  .section-title-lg {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(34px, 4.6vw, 50px);
+    color: var(--navy-deep);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .section-title-lg em {
+    font-style: italic;
+    color: var(--gold);
+    font-weight: 400;
+  }
 
-    /* ── GALLERY ──────────────────────────────────── */
-    .section { padding: 3rem 1.5rem; max-width: 1100px; margin: 0 auto; }
-    .section-title {
-      font-size: 1.4rem;
-      font-weight: normal;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid var(--gold);
-      display: inline-block;
-    }
+  /* Legacy classes kept for any leftovers */
+  .section-title { display: none; }
+  .section-rule { display: none; }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 12px;
-    }
-    .gallery-grid .featured {
-      grid-column: span 2;
-    }
-    @media (max-width: 600px) {
-      .gallery-grid .featured { grid-column: span 1; }
-    }
+  /* ---------- Photo tour ---------- */
+  .photo-hero {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: zoom-in;
+    aspect-ratio: 16 / 10;
+    background: #2b3445;
+    box-shadow: 0 18px 50px -22px rgba(20,30,50,0.35);
+    transition: transform 220ms ease, box-shadow 220ms ease;
+    border: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .photo-hero:hover { transform: translateY(-2px); box-shadow: 0 26px 60px -20px rgba(20,30,50,0.45); }
+  .photo-hero:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+  .photo-hero img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 700ms cubic-bezier(.2,.7,.2,1); animation: kenBurns 22s ease-in-out infinite alternate; }
+  .photo-hero:hover img { transform: scale(1.03); animation-play-state: paused; }
+  @keyframes kenBurns {
+    0%   { transform: scale(1.0)  translate(0, 0); }
+    100% { transform: scale(1.06) translate(-1.2%, -0.8%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .photo-hero img { animation: none; }
+  }
+  .photo-hero .vignette {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at center, transparent 55%, rgba(60,40,20,0.28) 100%),
+      linear-gradient(135deg, rgba(245,235,210,0.05), transparent 40%);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  .photo-hero .scrim {
+    position: absolute; inset: auto 0 0 0;
+    height: 45%;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+    pointer-events: none;
+  }
+  .photo-hero .cta {
+    position: absolute;
+    left: 22px; bottom: 20px;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .photo-hero .cta .icon {
+    width: 26px; height: 26px;
+    border: 1px solid rgba(255,255,255,0.55);
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11px;
+  }
+  .photo-hero .count-pill {
+    position: absolute;
+    top: 18px; right: 18px;
+    background: rgba(19,31,51,0.78);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #fff;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    padding: 7px 12px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .thumb-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .thumb {
+    aspect-ratio: 4 / 3;
+    border-radius: 3px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #d8d2c4;
+    border: 0;
+    padding: 0;
+    position: relative;
+    transition: opacity 180ms ease;
+  }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 500ms ease; }
+  .thumb:hover img { transform: scale(1.06); }
+  .thumb:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+  .thumb.more {
+    background: var(--navy);
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .thumb.more .small {
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+    margin-top: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
 
-    .thumb {
-      position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      cursor: pointer;
-      background: #d0cbc3;
-      aspect-ratio: 4/3;
-    }
-    .thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.35s ease;
-    }
-    .thumb:hover img { transform: scale(1.05); }
-    .thumb .caption {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.55));
-      color: #fff;
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      padding: 0.6rem 0.8rem;
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-    .thumb:hover .caption { opacity: 1; }
+  /* ---------- Slideshow modal ---------- */
+  .modal {
+    position: fixed; inset: 0;
+    background: rgba(10,15,25,0.96);
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+  }
+  .modal.open { display: flex; animation: fade 220ms ease; }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  .modal-top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 24px;
+    color: rgba(255,255,255,0.85);
+  }
+  .modal-top .ttl {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .modal-top .ttl .sub {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .modal-count {
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: rgba(255,255,255,0.6);
+    font-variant-numeric: tabular-nums;
+  }
+  .modal-count b { color: var(--gold); font-weight: 600; }
+  .modal-close {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 160ms ease, border-color 160ms ease;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+  .modal-stage {
+    flex: 1; position: relative;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 80px;
+    min-height: 0;
+  }
+  .modal-stage img {
+    max-width: 100%; max-height: 100%;
+    object-fit: contain;
+    border-radius: 3px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    animation: imgFade 350ms ease;
+    outline: 1px solid rgba(201,163,92,0.45);
+    outline-offset: -1px;
+  }
+  @keyframes imgFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .nav-arrow {
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff; font-size: 22px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 160ms ease, border-color 160ms ease;
+  }
+  .nav-arrow:hover { background: var(--gold); color: var(--navy-deep); border-color: var(--gold); }
+  .nav-arrow.prev { left: 18px; }
+  .nav-arrow.next { right: 18px; }
+  .modal-caption {
+    text-align: center;
+    color: rgba(255,255,255,0.65);
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    padding: 14px 24px 6px;
+    min-height: 22px;
+  }
+  .modal-thumbs {
+    display: flex;
+    gap: 6px;
+    padding: 12px 24px 22px;
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+  }
+  .modal-thumbs::-webkit-scrollbar { height: 6px; }
+  .modal-thumbs::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 3px; }
+  .modal-thumb {
+    flex: 0 0 auto;
+    width: 84px; height: 58px;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background: #333;
+    padding: 0;
+    opacity: 0.5;
+    transition: opacity 160ms ease, border-color 160ms ease;
+  }
+  .modal-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .modal-thumb:hover { opacity: 0.85; }
+  .modal-thumb.active { opacity: 1; border-color: var(--gold); }
 
-    /* always-visible "View all photos" label on the hero tile */
-    .gallery-cta {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.65));
-      color: #fff;
-      font-family: Arial, sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      padding: 1.5rem 1rem 0.9rem;
-      text-align: center;
-      pointer-events: none;
-    }
+  /* ---------- Details datasheet (hairline) ---------- */
+  .datasheet {
+    border-top: 1px solid var(--line);
+  }
+  .datasheet .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .datasheet .item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 4px;
+    border-right: 1px solid var(--line);
+  }
+  .datasheet .row .item:last-child { border-right: 0; padding-left: 28px; }
+  .datasheet .row .item:first-child { padding-right: 28px; }
+  .datasheet .k {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    color: var(--ink-soft);
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .datasheet .v {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--navy-deep);
+    line-height: 1.2;
+    letter-spacing: 0.005em;
+  }
 
-    /* placeholder tile when no image loaded */
-    .thumb.placeholder {
-      background: #d8d3cc;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .thumb.placeholder span {
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      color: #888;
-      text-align: center;
-      padding: 1rem;
-    }
+  /* ---------- About drop cap + warmer body ---------- */
+  .about-card .lede {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.7;
+    color: #3a3530;
+    font-weight: 400;
+  }
+  .about-card .lede::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    float: left;
+    font-size: 78px;
+    line-height: 0.85;
+    padding: 6px 12px 0 0;
+    color: var(--gold);
+    font-weight: 500;
+    font-style: italic;
+  }
 
-    /* ── LIGHTBOX ─────────────────────────────────── */
-    #lightbox {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.92);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
-    #lightbox.open { display: flex; }
+  /* ---------- About ---------- */
+  .about-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 36px 40px;
+  }
+  .about-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.78;
+    color: #3a3f47;
+    text-wrap: pretty;
+  }
+  .about-card p + p { margin-top: 14px; }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px 28px;
+    margin-top: 28px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+  }
+  .feature {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .feature .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 8px;
+    flex: 0 0 auto;
+  }
 
-    #lb-img {
-      max-width: 90vw;
-      max-height: 80vh;
-      object-fit: contain;
-      border-radius: var(--radius);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-    }
-    #lb-caption {
-      color: #ccc;
-      font-family: Arial, sans-serif;
-      font-size: 0.85rem;
-      margin-top: 0.8rem;
-    }
-    #lb-counter {
-      color: #666;
-      font-family: Arial, sans-serif;
-      font-size: 0.75rem;
-      margin-top: 0.3rem;
-    }
+  /* ---------- Location ---------- */
+  .location-card {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--card);
+    box-shadow: 0 18px 50px -28px rgba(20,30,50,0.25);
+  }
+  .location-meta {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    background: #fdfbf6;
+  }
+  .location-meta .cell {
+    padding: 22px 26px;
+    border-right: 1px solid var(--line);
+  }
+  .location-meta .cell:last-child { border-right: 0; }
+  .location-meta .k {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .location-meta .v {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    color: var(--navy-deep);
+    line-height: 1.25;
+  }
+  .location-meta .v em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .map-frame {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    background: #e8efe6;
+    display: block;
+    border: 0;
+    filter: saturate(0.85) contrast(0.98);
+  }
 
-    .lb-btn {
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(255,255,255,0.12);
-      border: none;
-      color: #fff;
-      font-size: 2rem;
-      width: 3rem;
-      height: 5rem;
-      cursor: pointer;
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-      user-select: none;
-    }
-    .lb-btn:hover { background: rgba(255,255,255,0.25); }
-    #lb-prev { left: 0.75rem; }
-    #lb-next { right: 0.75rem; }
+  /* ---------- Contact CTA ---------- */
+  .contact {
+    margin-top: 18px;
+    background: var(--navy);
+    color: #fff;
+    border-radius: 3px;
+    padding: 56px 40px 52px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px -28px rgba(20,30,50,0.55);
+  }
+  .contact::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at top, rgba(201,163,92,0.12), transparent 60%);
+    pointer-events: none;
+  }
+  .contact > * { position: relative; }
+  .contact .eyebrow {
+    display: inline-block;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .contact h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: clamp(36px, 4.4vw, 46px);
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  .contact h3 em { font-style: italic; color: var(--gold); }
+  .contact p {
+    color: rgba(255,255,255,0.7);
+    font-size: 14.5px;
+    max-width: 460px;
+    margin: 0 auto 30px;
+    line-height: 1.65;
+  }
+  .contact-actions {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    transition: background 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+  }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy-deep);
+  }
+  .btn-gold:hover { background: var(--gold-soft); transform: translateY(-1px); }
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+  .contact .phones {
+    margin-top: 26px;
+    color: rgba(255,255,255,0.55);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .contact .phones b {
+    color: var(--gold);
+    font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    margin: 0 6px;
+    font-style: italic;
+  }
 
-    #lb-close {
-      position: fixed;
-      top: 1rem; right: 1rem;
-      background: rgba(255,255,255,0.12);
-      border: none;
-      color: #fff;
-      font-size: 1.4rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      cursor: pointer;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-    }
-    #lb-close:hover { background: rgba(255,255,255,0.3); }
+  /* ---------- Footer ---------- */
+  footer {
+    margin-top: 120px;
+    background: var(--navy-deep);
+    color: rgba(255,255,255,0.55);
+    padding: 56px 24px 36px;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  footer .foot-mark {
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    letter-spacing: 0.18em;
+    margin-bottom: 10px;
+    text-transform: none;
+  }
+  footer .foot-rule {
+    width: 60px; height: 1px;
+    background: rgba(201,163,92,0.5);
+    margin: 14px auto 18px;
+  }
+  footer .foot-line {
+    color: rgba(255,255,255,0.4);
+    font-size: 10.5px;
+    letter-spacing: 0.24em;
+  }
+  footer .foot-line + .foot-line { margin-top: 6px; }
 
-    /* ── DETAILS ──────────────────────────────────── */
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .detail-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.4rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-    .detail-card .d-label {
-      font-family: Arial, sans-serif;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gray);
-      margin-bottom: 0.3rem;
-    }
-    .detail-card .d-value {
-      font-size: 1.1rem;
-      color: var(--navy);
-    }
+  @media (max-width: 760px) {
+    .modal-stage { padding: 0 12px; }
+    .details { grid-template-columns: repeat(2, 1fr); }
+    .features { grid-template-columns: repeat(2, 1fr); }
+    .about-card { padding: 26px 22px; }
+    .nav-arrow { width: 42px; height: 42px; }
+    .nav-arrow.prev { left: 8px; }
+    .nav-arrow.next { right: 8px; }
+    .section-head { grid-template-columns: 1fr; gap: 14px; margin-bottom: 32px; }
+    .section-eyebrow { padding-top: 10px; }
+    section { padding: 64px 0 8px; }
+    .datasheet .row { grid-template-columns: 1fr; }
+    .datasheet .item { padding: 14px 0; border-right: 0; }
+    .datasheet .row .item:first-child { padding-right: 0; }
+    .datasheet .row .item:last-child { padding-left: 0; }
+    .about-card .lede::first-letter { font-size: 60px; padding: 4px 10px 0 0; }
+    .location-meta { grid-template-columns: 1fr; }
+    .location-meta .cell { border-right: 0; border-bottom: 1px solid var(--line); }
+    .location-meta .cell:last-child { border-bottom: 0; }
+    .contact { padding: 44px 24px 40px; }
+  }
+  @media (max-width: 600px) {
+    .thumb-row { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { gap: 28px; }
+    .features { grid-template-columns: 1fr; }
+  }
+  /* ---------- Scroll reveals ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 
-    /* ── DESCRIPTION ──────────────────────────────── */
-    .description {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1.8rem 2rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-      line-height: 1.8;
-      font-size: 1rem;
-    }
-
-    /* ── CONTACT ──────────────────────────────────── */
-    .contact-box {
-      background: var(--navy);
-      color: var(--white);
-      border-radius: var(--radius);
-      padding: 2rem 2.5rem;
-      text-align: center;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-    .contact-box h3 {
-      font-weight: normal;
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-    .contact-box p {
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      color: #a8b8c8;
-      margin-bottom: 1.5rem;
-    }
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-    .contact-links a {
-      display: inline-block;
-      padding: 0.65rem 1.4rem;
-      border-radius: var(--radius);
-      font-family: Arial, sans-serif;
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-    .contact-links a:hover { opacity: 0.85; }
-    .btn-gold   { background: var(--gold); color: var(--navy); }
-    .btn-outline { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.4); }
-
-    /* ── FOOTER ───────────────────────────────────── */
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-family: Arial, sans-serif;
-      font-size: 0.8rem;
-      color: var(--gray);
-      border-top: 1px solid #e0dbd3;
-    }
-
-    /* ── MAP EMBED ────────────────────────────────── */
-    .map-wrap {
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
-      height: 340px;
-    }
-    .map-wrap iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
-  </style>
+</style>
 </head>
 <body>
 
-<!-- ── HEADER ───────────────────────────────────────── -->
-<header>
-  <div class="tag">For Sale</div>
-  <h1>1041 Short Leaf Circle</h1>
-  <p class="subtitle"><!-- City, State ZIP --> &nbsp;</p>
-  <div class="stats">
-    <div class="stat"><span class="value" id="stat-bed">—</span><span class="label">Beds</span></div>
-    <div class="stat"><span class="value" id="stat-bath">—</span><span class="label">Baths</span></div>
-    <div class="stat"><span class="value" id="stat-sqft">—</span><span class="label">Sq Ft</span></div>
+<div class="topbar">
+  <span class="domain">1041shortleafcircle.com</span>
+  <span class="status">Active Listing</span>
+</div>
+
+<header class="hero">
+  <span class="monogram">1041 &middot; SLC</span>
+  <span class="badge">For Sale by Owner</span>
+  <h1>1041 <em>Short Leaf</em> Circle</h1>
+  <div class="addr">Gardendale, Alabama 35071</div>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">4</div><div class="lbl">Beds</div></div>
+    <div class="stat"><div class="num">3.5</div><div class="lbl">Baths</div></div>
+    <div class="stat"><div class="num">3,300</div><div class="lbl">Sq Ft</div></div>
+    <div class="stat"><div class="num">0.58</div><div class="lbl">Acres</div></div>
   </div>
 </header>
 
-<!-- ── PRICE BANNER ─────────────────────────────────── -->
-<div class="price-banner" id="price-banner">
-  $<span id="price-value">000,000</span>
+<div class="price-bar">
+  <span class="pre">Offered at</span>$615,900
 </div>
 
-<!-- ── PHOTO GALLERY ─────────────────────────────────── -->
-<div class="section">
-  <h2 class="section-title">Photo Tour</h2>
-  <div class="gallery-grid" id="gallery">
-    <!-- Photos are injected by JS from the PHOTOS array below -->
-  </div>
-</div>
-
-<!-- ── PROPERTY DETAILS ──────────────────────────────── -->
-<div class="section" style="padding-top:0">
-  <h2 class="section-title">Property Details</h2>
-  <div class="details-grid" id="details-grid">
-    <!-- Detail cards injected by JS -->
-  </div>
-</div>
-
-<!-- ── DESCRIPTION ───────────────────────────────────── -->
-<div class="section" style="padding-top:0">
-  <h2 class="section-title">About This Home</h2>
-  <div class="description" id="description">
-    <!-- Add your listing description here -->
-    Update the <code>DESCRIPTION</code> variable in the script below with your listing copy.
-  </div>
-</div>
-
-<!-- ── MAP ───────────────────────────────────────────── -->
-<div class="section" style="padding-top:0">
-  <h2 class="section-title">Location</h2>
-  <div class="map-wrap" id="map-wrap">
-    <!-- Map iframe is injected by JS once address is set -->
-  </div>
-</div>
-
-<!-- ── CONTACT ───────────────────────────────────────── -->
-<div class="section" style="padding-top:0">
-  <div class="contact-box">
-    <h3>Interested?</h3>
-    <p>Reach out to schedule a showing or ask questions.</p>
-    <div class="contact-links" id="contact-links">
-      <!-- Injected by JS -->
+<main>
+  <section class="wrap" id="photos">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">I &nbsp;·&nbsp; The Property</div>
+      <h2 class="section-title-lg">Photo <em>Tour</em></h2>
     </div>
-  </div>
-</div>
 
-<!-- ── FOOTER ────────────────────────────────────────── -->
+    <button class="photo-hero reveal" data-open-slideshow="0" aria-label="Open photo slideshow">
+      <img id="heroPhoto" alt="Front exterior of 1041 Short Leaf Circle">
+      <div class="vignette"></div>
+      <div class="count-pill">46 Photos</div>
+      <div class="scrim"></div>
+      <div class="cta">
+        <span class="icon">&rsaquo;</span>
+        <span>View full slideshow</span>
+      </div>
+    </button>
+
+    <div class="thumb-row">
+      <button class="thumb" data-open-slideshow="1" aria-label="View photo 2"><img alt=""></button>
+      <button class="thumb" data-open-slideshow="2" aria-label="View photo 3"><img alt=""></button>
+      <button class="thumb" data-open-slideshow="3" aria-label="View photo 4"><img alt=""></button>
+      <button class="thumb more" data-open-slideshow="4" aria-label="View all photos">
+        +42<span class="small">View All</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="wrap" id="details">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">II &nbsp;·&nbsp; The Particulars</div>
+      <h2 class="section-title-lg">Property <em>Details</em></h2>
+    </div>
+    <div class="datasheet reveal">
+      <div class="row">
+        <div class="item"><span class="k">Year Built</span><span class="v">1999</span></div>
+        <div class="item"><span class="k">Lot Size</span><span class="v">0.58 Acres</span></div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="k">Garage</span><span class="v">2-Car, Side Entry</span></div>
+        <div class="item"><span class="k">Stories</span><span class="v">Two</span></div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="k">Heating</span><span class="v">Dual-Zone Gas</span></div>
+        <div class="item"><span class="k">Cooling</span><span class="v">Central Electric</span></div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="k">Roof</span><span class="v">Architectural Shingle</span></div>
+        <div class="item"><span class="k">HOA</span><span class="v">$125 / Year</span></div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="k">School District</span><span class="v">Jefferson County</span></div>
+        <div class="item"><span class="k">Subdivision</span><span class="v">Pinemeadow Estates</span></div>
+      </div>
+      <div class="row">
+        <div class="item"><span class="k">Property Tax</span><span class="v">$1,950 / Year</span></div>
+        <div class="item"><span class="k">MLS Status</span><span class="v">By Owner</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="about">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">III &nbsp;·&nbsp; The Story</div>
+      <h2 class="section-title-lg">About the <em>Home</em></h2>
+    </div>
+    <div class="about-card reveal">
+      <p class="lede">Welcome to this exquisite home situated on a spacious corner lot on a quiet, desirable street in Gardendale. This beautifully updated property offers comfort, style, and functionality throughout. Upstairs, you'll find spacious bedrooms, a formal dining room, and a stunning, updated kitchen perfect for entertaining.</p>
+      <p>The thoughtfully designed laundry room flows directly into the master closet for ultimate convenience. Step outside to your private outdoor oasis featuring a covered deck, flagstone patio, built-in seating, fire pit, and a fully equipped outdoor kitchen and bar area — all within a fully fenced backyard. Downstairs offers a versatile bedroom and bonus room that could serve as an office, game room, or home gym. Additional features include plantation shutters throughout, a tankless hot water heater, and a sprinkler system.</p>
+      <div class="features">
+        <div class="feature"><span class="dot"></span><span>Stone countertops</span></div>
+        <div class="feature"><span class="dot"></span><span>Cathedral / vaulted ceilings</span></div>
+        <div class="feature"><span class="dot"></span><span>Crown molding throughout</span></div>
+        <div class="feature"><span class="dot"></span><span>Covered deck &amp; flagstone patio</span></div>
+        <div class="feature"><span class="dot"></span><span>Outdoor kitchen &amp; fire pit</span></div>
+        <div class="feature"><span class="dot"></span><span>Full finished basement</span></div>
+        <div class="feature"><span class="dot"></span><span>Tankless water heater</span></div>
+        <div class="feature"><span class="dot"></span><span>Plantation shutters</span></div>
+        <div class="feature"><span class="dot"></span><span>Irrigation system</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="location">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">IV &nbsp;·&nbsp; The Setting</div>
+      <h2 class="section-title-lg">Location &amp; <em>Neighborhood</em></h2>
+    </div>
+    <div class="location-card reveal">
+      <div class="location-meta">
+        <div class="cell">
+          <span class="k">Address</span>
+          <div class="v">1041 <em>Short Leaf</em> Circle<br>Gardendale, AL 35071</div>
+        </div>
+        <div class="cell">
+          <span class="k">Subdivision</span>
+          <div class="v">Pinemeadow Estates</div>
+        </div>
+        <div class="cell">
+          <span class="k">County</span>
+          <div class="v">Jefferson</div>
+        </div>
+      </div>
+      <iframe
+        class="map-frame"
+        title="Map of 1041 Short Leaf Circle, Gardendale, AL 35071"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=1041+Short+Leaf+Circle+Gardendale+AL+35071&output=embed"></iframe>
+    </div>
+  </section>
+
+  <section class="wrap" id="contact">
+    <div class="section-head reveal">
+      <div class="section-eyebrow">V &nbsp;·&nbsp; The Inquiry</div>
+      <h2 class="section-title-lg">Schedule a <em>Private Showing</em></h2>
+    </div>
+    <div class="contact reveal">
+      <span class="eyebrow">— Interested? —</span>
+      <h3>Reach out to <em>arrange a visit</em></h3>
+      <p>Tour the home in person, request additional photographs, or ask any question about the property. Offered directly by the owner — no agents, no appointments needed in advance.</p>
+      <div class="contact-actions">
+        <a class="btn btn-gold" href="tel:+12053860283">
+          <span>Call the Owner</span>
+          <span aria-hidden="true">&rsaquo;</span>
+        </a>
+        <a class="btn btn-ghost" href="mailto:services@flasholdings.com">
+          <span>Email the Seller</span>
+          <span aria-hidden="true">&rsaquo;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
 <footer>
-  &copy; <span id="year"></span> &mdash; 1041 Short Leaf Circle &mdash; All photos &amp; content property of seller.
+  <div class="foot-mark">1041 &middot; SLC</div>
+  <div class="foot-line">1041 Short Leaf Circle &middot; Gardendale, Alabama 35071</div>
+  <div class="foot-rule"></div>
+  <div class="foot-line">&copy; 2026 &middot; Offered for sale by owner</div>
+  <div class="foot-line">All photographs &amp; written content property of the seller</div>
 </footer>
 
-<!-- ── LIGHTBOX ──────────────────────────────────────── -->
-<div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button id="lb-close" aria-label="Close">&times;</button>
-  <button class="lb-btn" id="lb-prev" aria-label="Previous photo">&#8249;</button>
-  <img id="lb-img" src="" alt="" />
-  <div id="lb-caption"></div>
-  <div id="lb-counter"></div>
-  <button class="lb-btn" id="lb-next" aria-label="Next photo">&#8250;</button>
+<!-- Slideshow modal -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Photo slideshow">
+  <div class="modal-top">
+    <div class="ttl">1041 Short Leaf Circle<span class="sub">Photo Gallery</span></div>
+    <div class="modal-count" id="modalCount"><b>01</b> / 46</div>
+    <button class="modal-close" id="modalClose" aria-label="Close slideshow">&times;</button>
+  </div>
+  <div class="modal-stage" id="modalStage">
+    <button class="nav-arrow prev" id="navPrev" aria-label="Previous photo">&lsaquo;</button>
+    <img id="modalImg" alt="">
+    <button class="nav-arrow next" id="navNext" aria-label="Next photo">&rsaquo;</button>
+  </div>
+  <div class="modal-caption" id="modalCaption"></div>
+  <div class="modal-thumbs" id="modalThumbs"></div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════
-     CONFIGURATION — edit everything in this block
-     ══════════════════════════════════════════════════════ -->
+<script src="slideshow.js"></script>
 <script>
-// ─── 1. PROPERTY INFO ──────────────────────────────────
-const PROPERTY = {
-  address:   "1041 Short Leaf Circle",
-  cityState: "Gardendale, AL  35071",
-  price:     "615,900",
-  beds:      "4",
-  baths:     "3.5",
-  sqft:      "3,300",
-  yearBuilt: "1999",
-  lotSize:   "0.58 Acres",
-};
-
-// ─── 2. EXTRA DETAIL CARDS ─────────────────────────────
-const DETAILS = [
-  { label: "Subdivision",        value: "Pinemeadow Estates" },
-  { label: "Lot",                value: "Corner / Cul-de-sac" },
-  { label: "Construction",       value: "4 Sides Brick" },
-  { label: "Foundation",         value: "Full Finished Basement" },
-  { label: "Finished Basement",  value: "1,200 sq ft" },
-  { label: "Garage",             value: "2-Car Side Entry" },
-  { label: "Parking",            value: "Attached, Basement & Driveway" },
-  { label: "Fireplace",          value: "Gas — Family Room" },
-  { label: "Heating / Cooling",  value: "Central Electric" },
-  { label: "Water Heater",       value: "Gas Tankless" },
-  { label: "Water",              value: "Public" },
-  { label: "Sewer",              value: "Septic" },
-  { label: "Kitchen",            value: "Stone Countertops, Updated, Plummed for Gas Range" },
-  { label: "Ceilings",           value: "Cathedral/Vaulted, Crown Molding" },
-  { label: "Outdoor",            value: "Covered Deck, Flagstone Patio, Fire Pit & Outdoor Kitchen" },
-  { label: "Bonus Room",         value: "Office / Game Room / Home Gym" },
-  { label: "Schools",            value: "Gardendale Elem / Bragg Jr. High / Gardendale High" },
-  { label: "Annual Taxes",       value: "$1,950" },
-  { label: "Assn Fee",           value: "$125 / Year" },
-];
-
-// ─── 3. DESCRIPTION ────────────────────────────────────
-const DESCRIPTION = `Welcome to this exquisite home situated on a spacious corner lot on a quiet, desirable street in Gardendale. This beautifully updated property offers comfort, style, and functionality throughout. Upstairs, you'll find spacious bedrooms, a formal dining room, and a stunning, updated kitchen perfect for entertaining. The thoughtfully designed laundry room flows directly into the master closet for ultimate convenience. Step outside to your private outdoor oasis featuring a covered deck, flagstone patio, built-in seating, fire pit, and a fully equipped outdoor kitchen and bar area all within a fully fenced backyard. Perfect for relaxing or entertaining guests! Downstairs offers a versatile bedroom and bonus room that could easily serve as an office, game room, home gym; the possibilities are endless. Additional features include 2 car garage, plantation shutters throughout, a tankless hot water heater and sprinkler system. Don't miss your chance to own this incredible property!`;
-
-// ─── 4. PHOTOS ─────────────────────────────────────────
-// Put your images in the /images/ folder and list them here.
-// Mark the first one as featured: true to make it span 2 columns.
-// UPDATE the filenames below to match your actual image filenames.
-const PHOTOS = [
-  { src: "images/RAB2025-1.jpg",  caption: "Photo 1",  featured: true },
-  { src: "images/RAB2025-5.jpg",  caption: "Photo 2"  },
-  { src: "images/RAB2025-6.jpg",  caption: "Photo 3"  },
-  { src: "images/RAB2025-9.jpg",  caption: "Photo 4"  },
-  { src: "images/RAB2025-10.jpg", caption: "Photo 5"  },
-  { src: "images/RAB2025-11.jpg", caption: "Photo 6"  },
-  { src: "images/RAB2025-13.jpg", caption: "Photo 7"  },
-  { src: "images/RAB2025-14.jpg", caption: "Photo 8"  },
-  { src: "images/RAB2025-15.jpg", caption: "Photo 9"  },
-  { src: "images/RAB2025-17.jpg", caption: "Photo 10" },
-  { src: "images/RAB2025-18.jpg", caption: "Photo 11" },
-  { src: "images/RAB2025-19.jpg", caption: "Photo 12" },
-  { src: "images/RAB2025-20.jpg", caption: "Photo 13" },
-  { src: "images/RAB2025-22.jpg", caption: "Photo 14" },
-  { src: "images/RAB2025-23.jpg", caption: "Photo 15" },
-  { src: "images/RAB2025-24.jpg", caption: "Photo 16" },
-  { src: "images/RAB2025-25.jpg", caption: "Photo 17" },
-  { src: "images/RAB2025-26.jpg", caption: "Photo 18" },
-  { src: "images/RAB2025-28.jpg", caption: "Photo 19" },
-  { src: "images/RAB2025-29.jpg", caption: "Photo 20" },
-  { src: "images/RAB2025-30.jpg", caption: "Photo 21" },
-  { src: "images/RAB2025-31.jpg", caption: "Photo 22" },
-  { src: "images/RAB2025-32.jpg", caption: "Photo 23" },
-  { src: "images/RAB2025-33.jpg", caption: "Photo 24" },
-  { src: "images/RAB2025-34.jpg", caption: "Photo 25" },
-  { src: "images/RAB2025-35.jpg", caption: "Photo 26" },
-  { src: "images/RAB2025-36.jpg", caption: "Photo 27" },
-  { src: "images/RAB2025-37.jpg", caption: "Photo 28" },
-  { src: "images/RAB2025-38.jpg", caption: "Photo 29" },
-  { src: "images/RAB2025-39.jpg", caption: "Photo 30" },
-  { src: "images/RAB2025-40.jpg", caption: "Photo 31" },
-  { src: "images/RAB2025-41.jpg", caption: "Photo 32" },
-  { src: "images/RAB2025-42.jpg", caption: "Photo 33" },
-  { src: "images/RAB2025-43.jpg", caption: "Photo 34" },
-  { src: "images/RAB2025-44.jpg", caption: "Photo 35" },
-  { src: "images/RAB2025-45.jpg", caption: "Photo 36" },
-  { src: "images/RAB2025-46.jpg", caption: "Photo 37" },
-  { src: "images/RAB2025-47.jpg", caption: "Photo 38" },
-  { src: "images/RAB2025-48.jpg", caption: "Photo 39" },
-  { src: "images/RAB2025-49.jpg", caption: "Photo 40" },
-  { src: "images/RAB2025-50.jpg", caption: "Photo 41" },
-  { src: "images/RAB2025-51.jpg", caption: "Photo 42" },
-  { src: "images/RAB2025-52.jpg", caption: "Photo 43" },
-  { src: "images/RAB2025-53.jpg", caption: "Photo 44" },
-  { src: "images/RAB2025-54.jpg", caption: "Photo 45" },
-  { src: "images/RAB2025-55.jpg", caption: "Photo 46" },
-];
-
-// ─── 5. CONTACT ────────────────────────────────────────
-const CONTACT = {
-  phone:        "+12059280547",
-  email:        "taylor.j.harris@outlook.com",
-  phoneDisplay: "205-928-0547 / 205-928-0477",
-};
-
-// ─── 6. CUSTOM DOMAIN (for reference) ──────────────────
-// Your GitHub Pages custom domain is set via the CNAME file.
-// See CNAME in this repo — just replace its contents with your domain.
-// ───────────────────────────────────────────────────────
-
-
-// ══ DO NOT EDIT BELOW THIS LINE ════════════════════════
-
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Populate header stats
-document.querySelector(".subtitle").textContent = PROPERTY.cityState;
-document.getElementById("stat-bed").textContent  = PROPERTY.beds;
-document.getElementById("stat-bath").textContent = PROPERTY.baths;
-document.getElementById("stat-sqft").textContent = PROPERTY.sqft;
-document.getElementById("price-value").textContent = PROPERTY.price;
-
-// Description
-document.getElementById("description").textContent = DESCRIPTION.trim();
-
-// Detail cards
-const detailsGrid = document.getElementById("details-grid");
-const allDetails = [
-  { label: "Bedrooms",   value: PROPERTY.beds },
-  { label: "Bathrooms",  value: PROPERTY.baths },
-  { label: "Square Feet", value: PROPERTY.sqft },
-  { label: "Year Built", value: PROPERTY.yearBuilt },
-  { label: "Lot Size",   value: PROPERTY.lotSize },
-  ...DETAILS,
-];
-allDetails.forEach(d => {
-  const card = document.createElement("div");
-  card.className = "detail-card";
-  card.innerHTML = `<div class="d-label">${d.label}</div><div class="d-value">${d.value}</div>`;
-  detailsGrid.appendChild(card);
-});
-
-// Gallery — show only the first photo; clicking opens the full lightbox
-const gallery = document.getElementById("gallery");
-if (PHOTOS.length === 0) {
-  gallery.innerHTML = `<p style="font-family:Arial,sans-serif;color:#888;grid-column:1/-1">
-    Photos coming soon — add images to the <code>/images/</code> folder and update the PHOTOS array.</p>`;
-} else {
-  const photo = PHOTOS[0];
-  const div = document.createElement("div");
-  div.className = "thumb featured";
-  div.setAttribute("tabindex", "0");
-  div.setAttribute("role", "button");
-  div.setAttribute("aria-label", "View all " + PHOTOS.length + " photos");
-  div.innerHTML = `<img src="${photo.src}" alt="${photo.caption || "Photo 1"}" />`
-                + `<div class="gallery-cta">View all ${PHOTOS.length} photos &rsaquo;</div>`;
-  div.addEventListener("click",   () => openLightbox(0));
-  div.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") openLightbox(0); });
-  gallery.appendChild(div);
-}
-
-// Map
-if (PROPERTY.address && PROPERTY.cityState && PROPERTY.cityState !== "City, State  ZIP") {
-  const q = encodeURIComponent(PROPERTY.address + ", " + PROPERTY.cityState);
-  document.getElementById("map-wrap").innerHTML =
-    `<iframe title="Property location map"
-       src="https://maps.google.com/maps?q=${q}&output=embed"
-       loading="lazy"
-       referrerpolicy="no-referrer-when-downgrade"></iframe>`;
-} else {
-  document.getElementById("map-wrap").innerHTML =
-    `<p style="font-family:Arial,sans-serif;color:#888;padding:2rem;text-align:center">
-       Update <code>PROPERTY.cityState</code> to enable the map.</p>`;
-}
-
-// Contact buttons
-const links = document.getElementById("contact-links");
-if (CONTACT.phone) {
-  const a = document.createElement("a");
-  a.href = "tel:" + CONTACT.phone;
-  a.className = "btn-gold";
-  a.textContent = CONTACT.phoneDisplay || "Call / Text";
-  links.appendChild(a);
-}
-if (CONTACT.email) {
-  const a = document.createElement("a");
-  a.href = "mailto:" + CONTACT.email
-         + "?subject=" + encodeURIComponent("Inquiry: " + PROPERTY.address);
-  a.className = "btn-outline";
-  a.textContent = "Email Seller";
-  links.appendChild(a);
-}
-if (!CONTACT.phone && !CONTACT.email) {
-  links.innerHTML = `<p style="color:#a8b8c8;font-family:Arial,sans-serif;font-size:0.9rem">
-    Add your phone/email in the CONTACT section of the script.</p>`;
-}
-
-// ── LIGHTBOX ─────────────────────────────────────────────
-let lbIndex = 0;
-const lb      = document.getElementById("lightbox");
-const lbImg   = document.getElementById("lb-img");
-const lbCap   = document.getElementById("lb-caption");
-const lbCount = document.getElementById("lb-counter");
-
-function openLightbox(i) {
-  if (PHOTOS.length === 0) return;
-  lbIndex = i;
-  showSlide();
-  lb.classList.add("open");
-  document.body.style.overflow = "hidden";
-  document.getElementById("lb-close").focus();
-}
-
-function closeLightbox() {
-  lb.classList.remove("open");
-  document.body.style.overflow = "";
-}
-
-function showSlide() {
-  const p = PHOTOS[lbIndex];
-  lbImg.src = p.src;
-  lbImg.alt = p.caption || "Photo " + (lbIndex + 1);
-  lbCap.textContent   = p.caption || "";
-  lbCount.textContent = (lbIndex + 1) + " / " + PHOTOS.length;
-}
-
-function prevSlide() { lbIndex = (lbIndex - 1 + PHOTOS.length) % PHOTOS.length; showSlide(); }
-function nextSlide() { lbIndex = (lbIndex + 1)                 % PHOTOS.length; showSlide(); }
-
-document.getElementById("lb-close").addEventListener("click", closeLightbox);
-document.getElementById("lb-prev").addEventListener("click",  prevSlide);
-document.getElementById("lb-next").addEventListener("click",  nextSlide);
-
-lb.addEventListener("click", e => { if (e.target === lb) closeLightbox(); });
-
-document.addEventListener("keydown", e => {
-  if (!lb.classList.contains("open")) return;
-  if (e.key === "ArrowLeft")  prevSlide();
-  if (e.key === "ArrowRight") nextSlide();
-  if (e.key === "Escape")     closeLightbox();
-});
+  // Subtle scroll reveals
+  (function () {
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  })();
 </script>
+
 </body>
 </html>
